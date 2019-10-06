@@ -1,12 +1,11 @@
 var presence = new Presence({
     clientId: "630480553694593025",
-    mediaKeys: false
+    mediaKeys: true
 }),
 
-strings = presence.getStrings({
+    strings = presence.getStrings({
     play: "presence.playback.playing",
-    pause: "presence.playback.paused",
-    browsing: "presence.activity.browsing"
+    pause: "presence.playback.paused"
 });
 
 presence.on("UpdateData", async () => {
@@ -47,7 +46,7 @@ presence.on("UpdateData", async () => {
             }
         }
     } else {
-        data.details = (await strings).browsing,
+        data.details = "Browsing...",
         presence.setActivity(data);
     }
 });
@@ -56,4 +55,4 @@ function getTimestamps(videoTime: number, videoDuration: number) {
     var startTime = Date.now();
     var endTime = Math.floor(startTime / 1000) - videoTime + videoDuration;
     return [Math.floor(startTime / 1000), endTime];
-}
+  }
