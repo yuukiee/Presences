@@ -40,7 +40,7 @@ presence.on("UpdateData", async () => {
         let ep: any = document.getElementsByClassName("modal-title")[0]
 
         presenceData.details = anime.innerText
-        presenceData.state = `EP ${ep.innerText.substr(-2)}`
+        presenceData.state = `Episódio ${ep.innerText.substr(-2)}`
       }else if(vid && vid.paused){
         presenceData.details = anime.innerText
         presenceData.smallImageKey = 'paused';
